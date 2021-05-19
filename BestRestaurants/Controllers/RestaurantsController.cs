@@ -39,7 +39,7 @@ namespace BestRestaurants.Controllers
     }
     public ActionResult Edit(int id)
     {
-      var thisRestaurant = _db.Restaurants.FristOrDefault(restaurant => restaurant.Id == id);
+      var thisRestaurant = _db.Restaurants.FristOrDefault(restaurant => restaurant.RestaurantId == id);
       ViewBag.CuisineId = new SelectList(_db.Cuisines, "CuisineId", "Type");
       return View(thisRestaurant);
     }
