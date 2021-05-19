@@ -1,16 +1,17 @@
 using Microsoft.AspNetCore.Mvc;
 using BestRestaurants.Models;
 using System.Collections.Generic;
-using System.Linq;
 using Microsoft.EntityFrameworkCore;
+// using System.Core;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Linq;
 
 namespace BestRestaurants.Controllers
 {
   public class CuisinesController : Controller
   {
     private readonly BestRestaurantsContext _db;
-    public RestaurantsController(BestRestaurantsContext db)
+    public CuisinesController(BestRestaurantsContext db)
     {
       _db = db;
     }
@@ -24,7 +25,7 @@ namespace BestRestaurants.Controllers
       return View();
     }
 
-    [httpPost]
+    [HttpPost]
     public ActionResult Create(Cuisine cuisine)
     {
       _db.Cuisines.Add(cuisine);
@@ -33,12 +34,12 @@ namespace BestRestaurants.Controllers
     }
     public ActionResult Details(int id)
     {
-      Restaurant thisCuisine = _db.Cuisines.FristOrDefault(cuisine => cuisine.CuisineId == id);
+      Cuisine thisCuisine = _db.Cuisines.FirstOrDefault(cuisine => cuisine.CuisineId == id);
       return View(thisCuisine);
     }
     public ActionResult Edit(int id)
     {
-      var thisCuisine = _db.Cuisines.FristOrDefault(cuisine => cuisine.CuisineId == id);
+      var thisCuisine = _db.Cuisines.FirstOrDefault(cuisine => cuisine.CuisineId == id);
       return View(thisCuisine);
     }
     [HttpPost]
@@ -59,7 +60,7 @@ namespace BestRestaurants.Controllers
     public ActionResult DeleteConfirmed(int id)
     {
       var thisCuisine = _db.Cuisines.FirstOrDefault(cuisine => cuisine.CuisineId == id);
-      _db.Restaurants.Remove(thisCuisine);
+      _db.Cuisines.Remove(thisCuisine);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
