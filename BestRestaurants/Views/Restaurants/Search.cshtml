@@ -1,10 +1,17 @@
 @{
   Layout = "_Layout";
 }
-@using BestRestaurants.Models;
-@model List<BestRestaurants.Models.Restaurant>;
+@model BestRestaurants.Models.Restaurant
 
-@foreach (Restaurant restaurant in Model)
+@* <input type="text" asp-for="searchType" />
+  <input type="submit" value="Filter" name="searchType" /> *@
+
+@using (Html.BeginForm())
 {
-  <p>@Html.ActionLink($"{restaurant.Name}", "Details", new { id = restaurant.RestaurantId })</p>
+  @* @Html.LabelFor(model => model.Cuisine)
+  @Html.TextBoxFor(model => model.Cuisine.Type) *@
+  @Html.LabelFor(model => model.Cuisine)
+  @* @Html.DropDownList("CuisineId") *@
+  @Html.TextBoxFor(model => model.Cuisine.Type)
+  <input type="submit" value="Search" class="btn btn-default" />
 }

@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Linq;
 
+
 namespace BestRestaurants.Controllers
 {
   public class CuisinesController : Controller
@@ -34,8 +35,12 @@ namespace BestRestaurants.Controllers
     }
     public ActionResult Details(int id)
     {
+      // ViewBag <-- set it to the database of Restaurants where their CuisineId == id
+      // (not for here) RedirectToAction("Details", new {id = <cuisineId>}) cuisineId is the value from the dropdown (got this info from here https://stackoverflow.com/questions/1257482/redirecttoaction-with-parameter)
       Cuisine thisCuisine = _db.Cuisines.FirstOrDefault(cuisine => cuisine.CuisineId == id);
+      List<Restaurant> restaurantList = _db.Restaurants.Where(restaurant => restaurant.CuisineId == id).ToList();
       //Restaurants
+      ViewBag.Show = restaurantList;
       return View(thisCuisine);
     }
     public ActionResult Edit(int id)

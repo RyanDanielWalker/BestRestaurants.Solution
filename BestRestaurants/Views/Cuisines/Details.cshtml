@@ -4,26 +4,11 @@
 
 @model BestRestaurants.Models.Cuisine
 
-
 <h2>Cuisine Details</h2>
-<hr />
-<h3>@Html.DisplayNameFor(model => model.Type): @Html.DisplayFor(model => model.Type)<h3>
 
-    @* public virtual ICollection<Restaurant> Restaurants { get; set; }
+<h3>@Html.DisplayNameFor(model => model.Type): @Html.DisplayFor(model => model.Type)</h3>
 
-      Restaurant thisRestaurant = _db.Restaurants.FirstOrDefault(restaurant => restaurant.RestaurantId == id);
-      return View(thisRestaurant); *@
-
-
-    @* <li>@Html.ActionLink($"{restaurant.Name}", "Details", new { id = restaurant.RestaurantId }) |
-      @restaurant.Cuisine.Type</li> *@
-
-
-
-
-
-    @* //List of each Restaurant associated with CuisineId. *@
-    @* <p>@Html.ActionLink("Edit Cuisine", "Edit",s new { id = Model.CuisineId })</p>
-      <p>@Html.ActionLink("Delete Cuisine", "Delete", new { id = Model.CuisineId })</p> *@
-    @* <p>@Html.ActionLink("Back to cuisine list", "Index")</p> *@
-    @* *********************************** *@
+@foreach (var restaurant in ViewBag.Show)
+{
+  <li>@restaurant.Name</li>
+}
