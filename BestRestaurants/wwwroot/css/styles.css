@@ -1,0 +1,19 @@
+.card{
+  margin: auto;
+  margin-top: 5vh;
+  width: 50vw;
+  max-width: 600px;
+  padding: 10px;
+}
+*{
+  text-align: center;
+}
+h1{
+  text-decoration: underline;
+}
+input{
+  margin: auto;
+  width: 65%;
+  display: block;
+  margin-bottom: 10px;
+}
