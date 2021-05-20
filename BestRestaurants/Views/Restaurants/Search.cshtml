@@ -1,17 +1,17 @@
-@{
+@* @{
   Layout = "_Layout";
-}
-@model BestRestaurants.Models.Restaurant
+  }
+  @model BestRestaurants.Models.Restaurant
 
-@* <input type="text" asp-for="searchType" />
+  @* <input type="text" asp-for="searchType" />
   <input type="submit" value="Filter" name="searchType" /> *@
 
-@using (Html.BeginForm())
-{
-  @* @Html.LabelFor(model => model.Cuisine)
-  @Html.TextBoxFor(model => model.Cuisine.Type) *@
+@* @using (Html.BeginForm())
+  {
   @Html.LabelFor(model => model.Cuisine)
-  @* @Html.DropDownList("CuisineId") *@
+  @Html.TextBoxFor(model => model.Cuisine.Type)
+  @Html.LabelFor(model => model.Cuisine)
+  @Html.DropDownList("CuisineId")
   @Html.TextBoxFor(model => model.Cuisine.Type)
   <input type="submit" value="Search" class="btn btn-default" />
-}
+  } *@

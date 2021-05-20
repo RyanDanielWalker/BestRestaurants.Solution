@@ -10,5 +10,7 @@
 
 @foreach (var restaurant in ViewBag.Show)
 {
-  <li>@restaurant.Name</li>
+  @* <li>@restaurant.Name</li> *@
+
+  <li>@Html.ActionLink($"{restaurant.Name}", "Details","Restaurants", new { id = restaurant.RestaurantId })</li>
 }
